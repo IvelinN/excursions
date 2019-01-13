@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Excursion;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class ExcursionsController extends Controller
 {
     /**
@@ -13,7 +14,10 @@ class ExcursionsController extends Controller
      */
     public function index()
     {
-        //
+        $exmodel = new Excursion();
+        $allExcursions =  $exmodel::all();
+        return view('excursions.index')->with('excursions', $allExcursions);
+
     }
 
     /**
@@ -23,7 +27,7 @@ class ExcursionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('excursions.create');
     }
 
     /**
@@ -34,7 +38,30 @@ class ExcursionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array (
+            'name' => 'required|min:2|max:255',
+            'conDate' => 'required',
+            'duration' => 'required',
+            'typeTransport' => 'required',
+            'organisator' => 'required',
+        );
+
+        $validator = Validator::make($request->all(),$rules);
+
+        if($validator->fails()) {
+            return redirect('excursions/create')->WithErrors($validator);
+        }
+        else {
+            $excursion = new Excursion([
+                'name' => $request->get('name'),
+                'conDate' => $request->get('conDate'),
+                'duration' => $request->get('duration'),
+                'typeTransport' => $request->get('typeTransport'),
+                'organisator' => $request->get('organisator')
+            ]);
+            $excursion->save();
+            return redirect('excursions');
+        }
     }
 
     /**
@@ -45,7 +72,9 @@ class ExcursionsController extends Controller
      */
     public function show($id)
     {
-        //
+        $excursion = Excursion::find($id);
+
+        return view('excursions.show', compact('excursion', 'id'));
     }
 
     /**
