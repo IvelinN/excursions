@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="pull-right">
-    <a class="btn btn-primary" href="{{URL:to(route()) }}"
+    <a class="btn btn-primary" href="{{URL::to('/excursions')}}">Back</a>
 
 </div>
     <table class="table table-bordered table-hover">

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{URL::to('/excursions')}}">Back</a>
+    </div>
 <div class="form-group">
 <form method="post" action="{{url('/excursions')}}">
     <div class="form-group row">

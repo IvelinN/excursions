@@ -85,7 +85,9 @@ class ExcursionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $excursion = Excursion::find($id);
+
+        return view('excursions.edit', compact('excursion', 'id'));
     }
 
     /**
@@ -97,7 +99,14 @@ class ExcursionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $excursion = Excursion::find($id);
+        $excursion->name = $request->get('name');
+        $excursion->conDate = $request->get('conDate');
+        $excursion->duration = $request->get('duration');
+        $excursion->typeTransport = $request->get('typeTransport');
+        $excursion->organisator = $request->get('organisator');
+        $excursion->save();
+        return redirect('excursions')->with('success', 'Task was succesful');
     }
 
     /**
@@ -108,6 +117,8 @@ class ExcursionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $excursion = Excursion::find($id);
+        $excursion->delete();
+        return redirect('excursions')->with('success', 'Excursion has been deleted');
     }
 }
