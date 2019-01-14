@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Organisator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrganisatorsController extends Controller
 {
@@ -13,7 +15,9 @@ class OrganisatorsController extends Controller
      */
     public function index()
     {
-        //
+        $exmodel = new Organisator();
+        $allOrganisators =  $exmodel::all();
+        return view('organisators.index')->with('organisators', $allOrganisators);
     }
 
     /**
@@ -23,7 +27,7 @@ class OrganisatorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('organisators.create');
     }
 
     /**
@@ -34,7 +38,27 @@ class OrganisatorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array (
+            'firstName' => 'required|min:2|max:25',
+            'lastName' => 'required|min:2|max:25',
+            'age' => 'required',
+
+        );
+
+        $validator = Validator::make($request->all(),$rules);
+
+        if($validator->fails()) {
+            return redirect('organisators/create')->WithErrors($validator);
+        }
+        else {
+            $organisator = new Organisator([
+                'firstName' => $request->get('firstName'),
+                'lastName' => $request->get('lastName'),
+                'age' => $request->get('age'),
+            ]);
+            $organisator->save();
+            return redirect('organisators');
+        }
     }
 
     /**
@@ -45,7 +69,9 @@ class OrganisatorsController extends Controller
      */
     public function show($id)
     {
-        //
+        $organisator = Organisator::find($id);
+
+        return view('organisators.show', compact('organisator', 'id'));
     }
 
     /**
@@ -56,7 +82,9 @@ class OrganisatorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $organisator = Organisator::find($id);
+
+        return view('organisators.edit', compact('organisator', 'id'));
     }
 
     /**
@@ -68,7 +96,12 @@ class OrganisatorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $organisator = Organisator::find($id);
+        $organisator->firstName = $request->get('firstName');
+        $organisator->lastName = $request->get('lastName');
+        $organisator->age = $request->get('age');
+        $organisator->save();
+        return redirect('organisators')->with('success', 'Task was successful');
     }
 
     /**
@@ -79,6 +112,8 @@ class OrganisatorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $organisator = Organisator::find($id);
+        $organisator->delete();
+        return redirect('organisators')->with('success', 'Excursion has been deleted');
     }
 }

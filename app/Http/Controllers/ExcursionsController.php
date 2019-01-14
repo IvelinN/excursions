@@ -106,7 +106,7 @@ class ExcursionsController extends Controller
         $excursion->typeTransport = $request->get('typeTransport');
         $excursion->organisator = $request->get('organisator');
         $excursion->save();
-        return redirect('excursions')->with('success', 'Task was succesful');
+        return redirect('excursions')->with('success', 'Task was successful');
     }
 
     /**
