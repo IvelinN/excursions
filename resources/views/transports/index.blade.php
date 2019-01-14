@@ -3,7 +3,18 @@
 
     <div class="panel-heading">
         <a class="btn btn-small btn-success" href="{{ URL::to('transports/create') }}">Create a vehicle</a>
-    </div><br>
+    </div>
+    <form action="{{action("SearchController@searchTransport")}}" method="POST" role="search">
+        {{ csrf_field() }}
+        <div class="input-group">
+            <input type="text" class="form-control" name="q"
+                   placeholder="Search by transport"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search">Search</span>
+            </button>
+        </span>
+        </div>
+    </form><br>
     <table class="table table-bordered table-hover">
         <thead>
         <tr>

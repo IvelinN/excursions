@@ -54,7 +54,7 @@ class TransportsController extends Controller
                 'description' => $request->get('description'),
             ]);
             $transport->save();
-            return redirect('transports');
+            return redirect('transports')->with('success', 'Task was successful');
         }
     }
 
@@ -97,7 +97,7 @@ class TransportsController extends Controller
         $transport->transportType = $request->get('transportType');
         $transport->description = $request->get('description');
         $transport->save();
-        return redirect('transports')->with('success', 'Task was successful');
+        return redirect('transports')->with('update', 'Task was successful');
     }
 
     /**
@@ -110,6 +110,6 @@ class TransportsController extends Controller
     {
         $transport = Transport::find($id);
         $transport->delete();
-        return redirect('transports')->with('success', 'Excursion has been deleted');
+        return redirect('transports')->with('delete', 'Excursion has been deleted');
     }
 }

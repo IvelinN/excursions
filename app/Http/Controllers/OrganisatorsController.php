@@ -57,7 +57,7 @@ class OrganisatorsController extends Controller
                 'age' => $request->get('age'),
             ]);
             $organisator->save();
-            return redirect('organisators');
+            return redirect('organisators')->with('success', 'Task was successful');
         }
     }
 
@@ -101,7 +101,7 @@ class OrganisatorsController extends Controller
         $organisator->lastName = $request->get('lastName');
         $organisator->age = $request->get('age');
         $organisator->save();
-        return redirect('organisators')->with('success', 'Task was successful');
+        return redirect('organisators')->with('update', 'Task was successful');
     }
 
     /**
@@ -114,6 +114,6 @@ class OrganisatorsController extends Controller
     {
         $organisator = Organisator::find($id);
         $organisator->delete();
-        return redirect('organisators')->with('success', 'Excursion has been deleted');
+        return redirect('organisators')->with('delete', 'Excursion has been deleted');
     }
 }

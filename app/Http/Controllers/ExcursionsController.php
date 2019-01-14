@@ -60,7 +60,7 @@ class ExcursionsController extends Controller
                 'organisator' => $request->get('organisator')
             ]);
             $excursion->save();
-            return redirect('excursions');
+            return redirect('excursions')->with('success', 'Task was successful');
         }
     }
 
@@ -106,7 +106,7 @@ class ExcursionsController extends Controller
         $excursion->typeTransport = $request->get('typeTransport');
         $excursion->organisator = $request->get('organisator');
         $excursion->save();
-        return redirect('excursions')->with('success', 'Task was successful');
+        return redirect('excursions')->with('update', 'Task was successful');
     }
 
     /**
@@ -119,6 +119,6 @@ class ExcursionsController extends Controller
     {
         $excursion = Excursion::find($id);
         $excursion->delete();
-        return redirect('excursions')->with('success', 'Excursion has been deleted');
+        return redirect('excursions')->with('delete', 'Excursion has been deleted');
     }
 }

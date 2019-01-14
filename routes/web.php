@@ -23,3 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('excursions', 'ExcursionsController');
 Route::resource('organisators', 'OrganisatorsController');
 Route::resource('transports', 'TransportsController');
+
+Route::post('excursions.search', 'SearchController@searchExcursion');
+Route::post('organisators.search', 'SearchController@searchOrganisator');
+Route::post('transports.search', 'SearchController@searchTransport');
+
+

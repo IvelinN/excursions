@@ -3,7 +3,18 @@
 
     <div class="panel-heading">
         <a class="btn btn-small btn-success" href="{{ URL::to('organisators/create') }}">Create organisator</a>
-    </div><br>
+    </div>
+    <form action="{{action("SearchController@searchOrganisator")}}" method="POST" role="search">
+        {{ csrf_field() }}
+        <div class="input-group">
+            <input type="text" class="form-control" name="q"
+                   placeholder="Search by organisator"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search">Search</span>
+            </button>
+        </span>
+        </div>
+    </form><br>
     <table class="table table-bordered table-hover">
         <thead>
         <tr>

@@ -4,6 +4,17 @@
 <div class="panel-heading">
     <a class="btn btn-small btn-success" href="{{ URL::to('excursions/create') }}">Create an excursions</a>
 </div><br>
+<form action="{{action("SearchController@searchExcursion")}}" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+               placeholder="Search by date"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search">Search</span>
+            </button>
+        </span>
+    </div>
+</form>
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
