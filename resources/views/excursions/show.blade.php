@@ -27,7 +27,7 @@
                  Duration:
             </td>
             <td>
-                {{$excursion->duration}} minet
+                {{$excursion->duration}} days
             </td>
         </tr>
         <tr>

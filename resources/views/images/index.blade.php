@@ -30,13 +30,27 @@
                                     <td>{{ $value->imageDescription }}</td>
                                     <td><img src="<?php echo asset('storage/sample-images/' . $value->fileName);?>" alt="image" /></td>
                                     <!-- we will also add show, edit, and delete buttons -->
-                                    <td>
 
-                                        <form action="{{action('ImageController@destroy', $value->id )}}" method="post">
-                                            {{csrf_field()}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btn btn-danger" type="submit">Delete</button>
-                                        </form>
+
+
+                                    @guest
+                                    @else
+                                        <td>
+                                            <form action="{{action('TransportsController@destroy', $value->id)}}" method="POST">
+                                                {{csrf_field()}}
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                            </form>
+                                        </td>
+                                    @endguest
+
+
+
+                                        {{--<form action="{{action('ImageController@destroy', $value->id )}}" method="post">--}}
+                                            {{--{{csrf_field()}}--}}
+                                            {{--<input name="_method" type="hidden" value="DELETE">--}}
+                                            {{--<button class="btn btn-danger" type="submit">Delete</button>--}}
+                                        {{--</form>--}}
 
                                     </td>
                                 </tr>
