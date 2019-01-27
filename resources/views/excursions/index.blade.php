@@ -1,21 +1,30 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="panel-heading">
+
+
+
+
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{URL::to('/images')}}">Images</a>
+    </div><br>
+
+
+    <div class="panel-heading" >
     <a class="btn btn-small btn-success" href="{{ URL::to('excursions/create') }}">Create an excursions</a>
 </div><br>
-<form action="{{action("SearchController@searchExcursion")}}" method="POST" role="search">
+<form action="{{action("SearchController@searchExcursion")}}" method="POST" role="search" >
     {{ csrf_field() }}
-    <div class="input-group">
+    <div class="input-group"style="width: 68%">
         <input type="text" class="form-control" name="q"
                placeholder="Search by date"> <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
+            <button type="submit" class="btn btn-default btn-warning">
                 <span class="glyphicon glyphicon-search">Search</span>
             </button>
         </span>
-    </div>
+    </div><br>
 </form>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="width: 62%">
         <thead>
         <tr>
             <th>ID</th>
@@ -27,6 +36,7 @@
             <th colspan="3">Actions</th>
         </tr>
         </thead>
+
         <tbody>
         @foreach($excursions as $key => $value)
         <tr>
@@ -53,4 +63,6 @@
         @endforeach
         </tbody>
     </table>
+
 @endsection
+

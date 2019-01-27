@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
         <form method="post" action="{{action('OrganisatorsController@update', $id)}}">
-            <div class="form-group row">
+            <div class="form-group row"  style="width: 50%">
                 {{csrf_field()}}
                 <input name="_method" type="hidden" value="PATCH">
                 <label  class="col-sm-2 col-form-label col-form-label-lg">
@@ -17,7 +17,7 @@
                     <input type="text" class="form-control form-control-lg" name="firstName" value="{{$organisator->firstName}}">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" style="width: 50%">
                 {{csrf_field()}}
                 <label class="col-sm-2 col-form-label col-form-label-lg">
                     Last name
@@ -26,7 +26,7 @@
                     <input type="text" class="form-control form-control-lg" name="lastName" value="{{$organisator->lastName}}">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" style="width: 50%">
                 {{csrf_field()}}
                 <label class="col-sm-2 col-form-label col-form-label-lg">
                     Age

@@ -1,21 +1,28 @@
 @extends('layouts.app')
 @section('content')
 
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{URL::to('/images')}}">Images</a>
+    </div><br>
+
+
     <div class="panel-heading">
         <a class="btn btn-small btn-success" href="{{ URL::to('transports/create') }}">Create a vehicle</a>
-    </div>
+    </div><br>
+
+
     <form action="{{action("SearchController@searchTransport")}}" method="POST" role="search">
         {{ csrf_field() }}
-        <div class="input-group">
+        <div class="input-group" style="width: 68%">
             <input type="text" class="form-control" name="q"
                    placeholder="Search by transport"> <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
+            <button type="submit" class="btn btn-default btn-warning">
                 <span class="glyphicon glyphicon-search">Search</span>
             </button>
         </span>
         </div>
     </form><br>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover"style="width: 62%">
         <thead>
         <tr>
             <th>ID</th>

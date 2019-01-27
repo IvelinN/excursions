@@ -1,28 +1,33 @@
 @extends('layouts.app')
 @section('content')
 
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{URL::to('/images')}}">Images</a>
+    </div><br>
+
+
     <div class="panel-heading">
         <a class="btn btn-small btn-success" href="{{ URL::to('organisators/create') }}">Create organisator</a>
-    </div>
+    </div><br>
     <form action="{{action("SearchController@searchOrganisator")}}" method="POST" role="search">
         {{ csrf_field() }}
-        <div class="input-group">
+        <div class="input-group" style="width: 68%"  >
             <input type="text" class="form-control" name="q"
-                   placeholder="Search by organisator"> <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
+                   placeholder="Search by first name"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default btn-warning">
                 <span class="glyphicon glyphicon-search">Search</span>
             </button>
         </span>
         </div>
     </form><br>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="width: 62%; background-image: "  >
         <thead>
         <tr>
             <th>ID</th>
             <th>FName</th>
             <th>LName</th>
             <th>age</th>
-            <th colspan="3">Actions</th>
+            <th colspan="3" style="width: 20%">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -45,6 +50,7 @@
                         <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
+                
             </tr>
         @endforeach
         </tbody>

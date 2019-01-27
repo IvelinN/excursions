@@ -5,7 +5,7 @@
     </div>
     <div class="form-group">
         <form method="post" action="{{url('/organisators')}}">
-            <div class="form-group row">
+            <div class="form-group row"  style="width: 40%">
                 {{csrf_field()}}
                 <label  class="col-sm-2 col-form-label col-form-label-lg">
                     FName
@@ -14,7 +14,7 @@
                     <input type="text" class="form-control form-control-lg" name="firstName">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row"  style="width: 40%">
                 {{csrf_field()}}
                 <label class="col-sm-2 col-form-label col-form-label-lg">
                     LName
@@ -23,7 +23,7 @@
                     <input type="text" class="form-control form-control-lg" name="lastName">
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row"  style="width: 40%">
                 {{csrf_field()}}
                 <label class="col-sm-2 col-form-label col-form-label-lg">
                     Age

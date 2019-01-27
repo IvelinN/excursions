@@ -5,7 +5,7 @@
     </div>
 <div class="form-group">
 <form method="post" action="{{url('/excursions')}}">
-    <div class="form-group row">
+    <div class="form-group row" style="width: 45%">
         {{csrf_field()}}
         <label  class="col-sm-2 col-form-label col-form-label-lg">
             Name
@@ -14,7 +14,7 @@
             <input type="text" class="form-control form-control-lg" name="name">
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" style="width: 45%">
         {{csrf_field()}}
         <label class="col-sm-2 col-form-label col-form-label-lg">
             Date
@@ -23,7 +23,7 @@
             <input type="text" class="form-control form-control-lg" name="conDate">
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" style="width: 45%">
         {{csrf_field()}}
         <label class="col-sm-2 col-form-label col-form-label-lg">
             Duration
@@ -32,7 +32,7 @@
             <input type="text" class="form-control form-control-lg" name="duration">
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" style="width: 45%">
         {{csrf_field()}}
         <label class="col-sm-2 col-form-label col-form-label-lg">
             Transport
@@ -41,7 +41,7 @@
             <input type="text" class="form-control form-control-lg" name="typeTransport">
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" style="width: 45%">
         {{csrf_field()}}
         <label class="col-sm-2 col-form-label col-form-label-lg">
             Organisatior

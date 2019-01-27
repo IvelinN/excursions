@@ -4,8 +4,8 @@
 <div class="pull-right">
     <a class="btn btn-primary" href="{{URL::to('/organisators')}}">Back</a>
 
-</div>
-    <table class="table table-bordered table-hover">
+</div><br>
+    <table class="table table-bordered table-hover" style="width: 60%">
         <tr>
             <td>
                 First name:
@@ -27,7 +27,7 @@
                  Age:
             </td>
             <td>
-                {{$organisator->age}} minet
+                {{$organisator->age}}
             </td>
         </tr>
     </table>
