@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+    <div class="ml-4">
     <div class="pull-right">
         <a class="btn btn-primary" href="{{URL::to('/excursions')}}">Back</a>
 
@@ -8,7 +8,7 @@
 
 @if(isset($details))
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="width: 60%">
         <thead>
         <tr>
             <th>Name</th>
@@ -22,7 +22,7 @@
         @foreach($details as $excursions)
             <tr>
                 <td>{{$excursions->name}}</td>
-                <td  width="15%">{{$excursions->conDate}}</td>
+                <td>{{$excursions->conDate}}</td>
                 <td>{{$excursions->duration}}</td>
                 <td>{{$excursions->typeTransport}}</td>
                 <td>{{$excursions->organisator}}</td>
@@ -33,4 +33,5 @@
     @elseif(isset($message))
     <h1>{{$message}}</h1>
     @endif
+    </>
 @endsection

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    <div class="ml-4">
+
     <div class="pull-right">
         <a class="btn btn-primary" href="{{URL::to('/organisators')}}">Back</a>
     </div>
@@ -38,5 +40,6 @@
                 <input type="submit" class="btn btn-primary">
             </div>
         </form>
+    </div>
     </div>
 @endsection

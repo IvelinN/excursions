@@ -15,7 +15,7 @@ class SearchController extends Controller
             $excursion = Excursion::where('conDate','LIKE','%'.$q.'%')->get();
             if(count($excursion) > 0)
                 return view('excursions.search')->withDetails($excursion)->withQuery ( $q );
-            else return view ('excursions.search')->withMessage('No Details found. Try to search again !');
+            else return view ('excursions.search')->withMessage('No Details with this date found. Try to search again !');
 
     }
 
@@ -25,7 +25,7 @@ class SearchController extends Controller
         $organisator = Organisator::where('firstName','LIKE','%'.$q.'%')->get();
         if(count($organisator) > 0)
             return view('organisators.search')->withDetails($organisator)->withQuery ( $q );
-        else return view ('organisators.search')->withMessage('No Details found. Try to search again !');
+        else return view ('organisators.search')->withMessage('No Details with this name found. Try to search again !');
 
     }
 
@@ -35,7 +35,7 @@ class SearchController extends Controller
         $transport = Transport::where('transportType','LIKE','%'.$q.'%')->get();
         if(count($transport) > 0)
             return view('transports.search')->withDetails($transport)->withQuery ( $q );
-        else return view ('transports.search')->withMessage('No Details found. Try to search again !');
+        else return view ('transports.search')->withMessage('No Details with this transport found. Try to search again !');
 
     }
 

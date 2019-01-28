@@ -3,11 +3,8 @@
 
 
 
+<div class="ml-4">
 
-
-    <div class="pull-right">
-        <a class="btn btn-primary" href="{{URL::to('/images')}}">Images</a>
-    </div><br>
 
 
     <div class="panel-heading" >
@@ -43,7 +40,7 @@
             <td>{{$value->id}}</td>
             <td>{{$value->name}}</td>
             <td  width="15%">{{$value->conDate}}</td>
-            <td>{{$value->duration}}days</td>
+            <td>{{$value->duration}}   days</td>
             <td>{{$value->typeTransport}}</td>
             <td>{{$value->organisator}}</td>
             <td>
@@ -67,6 +64,6 @@
         @endforeach
         </tbody>
     </table>
-
+</div>
 @endsection
 

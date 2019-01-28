@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container; ml-4">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -43,16 +43,6 @@
                                             </form>
                                         </td>
                                     @endguest
-
-
-
-                                        {{--<form action="{{action('ImageController@destroy', $value->id )}}" method="post">--}}
-                                            {{--{{csrf_field()}}--}}
-                                            {{--<input name="_method" type="hidden" value="DELETE">--}}
-                                            {{--<button class="btn btn-danger" type="submit">Delete</button>--}}
-                                        {{--</form>--}}
-
-                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

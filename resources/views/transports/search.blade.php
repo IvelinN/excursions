@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+    <div class="ml-4">
     <div class="pull-right">
         <a class="btn btn-primary" href="{{URL::to('/transports')}}">Back</a>
 
@@ -8,7 +8,7 @@
 
 @if(isset($details))
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="width: 60%">
         <thead>
         <tr>
             <th>Transport type</th>
@@ -19,7 +19,7 @@
         @foreach($details as $transport)
             <tr>
                 <td>{{$transport->transportType}}</td>
-                <td  width="15%">{{$transport->description}}</td>
+                <td>{{$transport->description}}</td>
             </tr>
         @endforeach
         </tbody>
@@ -27,4 +27,5 @@
     @elseif(isset($message))
     <h1>{{$message}}</h1>
     @endif
+    </div>
 @endsection

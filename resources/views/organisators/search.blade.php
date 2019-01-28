@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+    <div class="ml-4">
     <div class="pull-right">
         <a class="btn btn-primary" href="{{URL::to('/organisators')}}">Back</a>
 
@@ -8,7 +8,7 @@
 
 @if(isset($details))
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="width: 60%">
         <thead>
         <tr>
             <th>FName</th>
@@ -20,7 +20,7 @@
         @foreach($details as $organisator)
             <tr>
                 <td>{{$organisator->firstName}}</td>
-                <td  width="15%">{{$organisator->lastName}}</td>
+                <td>{{$organisator->lastName}}</td>
                 <td>{{$organisator->age}}</td>
             </tr>
         @endforeach
@@ -29,4 +29,5 @@
     @elseif(isset($message))
     <h1>{{$message}}</h1>
     @endif
+    </div>
 @endsection

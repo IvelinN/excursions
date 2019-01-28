@@ -1,9 +1,8 @@
 @extends('layouts.app')
-@section('content')
 
-    <div class="pull-right">
-        <a class="btn btn-primary" href="{{URL::to('/images')}}">Images</a>
-    </div><br>
+@section('content')
+<div class="ml-4">
+
 
 
     <div class="panel-heading">
@@ -22,7 +21,7 @@
         </span>
         </div>
     </form><br>
-    <table class="table table-bordered table-hover"style="width: 62%">
+    <table class="table table-bordered table-hover"style="width: 63%">
         <thead>
         <tr>
             <th>ID</th>
@@ -57,4 +56,5 @@
         @endforeach
         </tbody>
     </table>
+</div>
 @endsection
