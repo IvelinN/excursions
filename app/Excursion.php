@@ -10,10 +10,8 @@ class Excursion extends Model
         'name', 'conDate', 'duration', 'typeTransport', 'organisator'
     ];
 
-    protected $guarded =[];
-
     public function organisator()
     {
-        return $this->hasMany(Organisator::class);
+        return $this->hasMany(organisator::class);
     }
 }
